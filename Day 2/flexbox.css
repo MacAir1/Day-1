@@ -1,0 +1,26 @@
+.container {
+  background-color: aquamarine;
+  display: flex;
+  //align-items: center;
+  justify-content: space-between;
+  //flex-direction: column;
+  height: 100vh;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+
+.box:nth-child(1) {
+  background-color: palevioletred;
+}
+
+.box:nth-child(2) {
+  background-color: darkgoldenrod;
+}
+
+.box:nth-child(3) {
+  background-color: purple;
+}

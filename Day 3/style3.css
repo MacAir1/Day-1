@@ -2,44 +2,48 @@ body {
   margin: 0;
 }
 
-header {
-  padding: 24px;
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 24px;
   max-width: 1280px;
   margin: auto;
-  background-color: green;
 }
 
-img {
+.logo {
   width: 108px;
 }
 
 button {
   background-color: white;
-  border: 0;
-  color: #222222;
   font-size: 16px;
   font-weight: 600;
+}
+
+.menu button {
+  display: none;
+  border: 0px;
+  color: #222222;
   padding-left: 16px;
   padding-right: 16px;
-  display: none;
+}
+
+.menu button:nth-child(2) {
+  margin-left: 44px;
+}
+
+.loginBox {
+  display: flex;
+  align-items: center;
 }
 
 .login {
   display: inline-block;
   border: 1px solid rgb(232, 232, 232);
   border-radius: 9999px;
-  font-size: 14px;
   padding: 8px 16px;
-}
-
-.firstBtn {
-  margin-left: 80px;
-}
-
-.loginBox {
-  display: flex;
+  font-size: 14px;
 }
 
 .ellipsis {
@@ -48,18 +52,18 @@ button {
 }
 
 @media (min-width: 1024px) {
-  button {
+  .menu button {
     display: inline-block;
-  }
-
-  .ellipsis {
-    display: none;
   }
 
   .login {
     color: #737373;
     font-size: 16px;
-    border: 0;
-    padding: 0;
+    border: 0px;
+    padding: 0px;
+  }
+
+  .ellipsis {
+    display: none;
   }
 }
