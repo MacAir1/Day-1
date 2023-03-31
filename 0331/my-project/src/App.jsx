@@ -1,35 +1,67 @@
 import { useState } from "react";
 
 const App = () => {
-  const [count, setCount] = useState(10);
+  const [num1, setNum1] = useState();
+  const [num2, setNum2] = useState();
+  const [result, setResult] = useState(0);
+
+  const onChangeNum1 = (e) => {
+    // console.log(e.target.value);
+    setNum1(e.target.value);
+  };
+  const onChangeNum2 = (e) => {
+    setNum2(e.target.value);
+  };
 
   const onClickAdd = () => {
-    setCount(count + 1);
+    if (isNaN(num1) || isNaN(num2)) {
+      alert("숫자입력하세요");
+      return;
+    }
+    setResult(parseInt(num1) + parseInt(num2));
   };
 
   const onClickMinus = () => {
-    if (count <= 0) {
-      alert("count값이 0보다 안된다");
-      return;
-    }
-    setCount(count - 1);
+    setResult(parseInt(num1) - parseInt(num2));
   };
 
   return (
-    <div className="bg-red-300 min-h-screen flex flex-col justify-center items-center">
-      <div>{count}</div>
-      <button
-        className="bg-green-300 w-12 h-12 rounded-full"
-        onClick={onClickAdd} // 화살표 함수로 클릭 확인
-      >
-        버튼
-      </button>
-      <button
-        className="bg-green-300 w-12 h-12 rounded-full"
-        onClick={onClickMinus} // 화살표 함수로 클릭 확인
-      >
-        빼기
-      </button>
+    <div className="bg-red-100 min-h-screen flex flex-col justify-center items-center">
+      <h1 className="text-2xl bg-red-100">공학용 계산기</h1>
+      <div className="text-3xl font-black mb-4">{result}</div>
+      <div>
+        <input
+          className="border-2 focus:outline-none focus:border-purple-400 rounded-lg px-4 py-2 text-xl"
+          type="text"
+          onChange={onChangeNum1}
+        />
+        <input
+          className="border-2 focus:outline-none focus:border-purple-400 rounded-lg px-4 py-2 text-xl ml-4"
+          type="text"
+          value={num2}
+          onChange={onChangeNum2}
+        />
+      </div>
+      <div>
+        <button
+          onClick={onClickAdd}
+          className="border-2 px-2 py-1 rounded-lg bg-yellow-100"
+        >
+          더하기
+        </button>
+        <button
+          onClick={onClickMinus}
+          className="border-2 px-2 py-1 rounded-lg bg-yellow-100"
+        >
+          빼기
+        </button>
+        <button className="border-2 px-2 py-1 rounded-lg bg-yellow-100">
+          곱하기
+        </button>
+        <button className="border-2 px-2 py-1 rounded-lg bg-yellow-100">
+          나누기
+        </button>
+      </div>
     </div>
   );
 };
